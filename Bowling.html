@@ -29,7 +29,7 @@
 					
 					<button type="button" class="btn btn-warning" onClick="history.go(0)" id="restart">
 						<span class="glyphicon glyphicon-refresh"></span>Restart
-					</button>
+					</button><br />
 				</div>
 		</div>
 		<div class="row" id="print">
@@ -51,9 +51,9 @@
 			</div>-->
 			<div class="col-xs-12" style="text-align: center">		
 					<button type="button" class="btn btn-primary" onclick="runThroughPlayers()" id="nextFrame">Next Frame
-					</button>
+					</button><br />
 					<button type="button" class="btn btn-success btn-lg" onclick="calculateTotalScore()" id="calculateTotal">Calcuate Total Score
-					</button>
+					</button><br />
 			</div>
 		</div>
 		
@@ -107,7 +107,7 @@
 		<form class="form-inline" role="form">
 			<div class="row" id="frameScores">	
 				<!--Player One -->
-				<div class="col-xs-6 col-sm-4  col-md-2" id="player0">
+				<div class="col-xs-6 col-sm-4  col-md-2" id="player0"  style="background-color:lavender;">
 					<div class="form-group">
 						<h2><p id="playerOneName"></p></h2><br />
 						<div id="totalScoresPlayer0">
@@ -117,8 +117,11 @@
 					</div>
 					<br />
 					<div class="form-group">
-						<input type="text" name="playerOneShotOne" id="player00" class="form-control" maxlength="2" size="1" onkeypress="frameValidation('player00')">
-						<input type="text" name="playerOneShotTwo" id="player01" class="form-control" maxlength="2" size="1" onkeypress="frameValidation('player01')" disabled>
+						<p id="playerOneShot1Label">Shot 1</p>
+						<input type="text" name="playerOneShotOne" id="player00" class="form-control" maxlength="2" size="1" onkeypress="frameValidation('player00')"><br /><br />
+						<p id="playerOneShot2Label">Shot 2</p>
+						<input type="text" name="playerOneShotTwo" id="player01" class="form-control" maxlength="2" size="1" onkeypress="frameValidation('player01')" disabled><br /><br />
+						<p id="playerOneShot3Label">Shot 3</p>
 						<input type="text" name="playerOneShotThree" id="player02" class="form-control" maxlength="2" size="1" onkeypress="frameValidation('player02')" disabled>
 					</div>
 				</div>
@@ -134,14 +137,17 @@
 					</div>
 					<br />
 					<div class="form-group">
-						<input type="text" name="playerTwoFrameOneShotOne" id="player10" class="form-control" maxlength="2" size="1" onkeypress="frameValidation('player10')">
-						<input type="text" name="playerTwoFrameOneShotTwo" id="player11" class="form-control" maxlength="2" size="1" disabled onkeypress="frameValidation('player11')">
+						<p id="playerTwoShot1Label">Shot 1</p>
+						<input type="text" name="playerTwoFrameOneShotOne" id="player10" class="form-control" maxlength="2" size="1" onkeypress="frameValidation('player10')"><br /><br />
+						<p id="playerTwoShot2Label">Shot 2</p>
+						<input type="text" name="playerTwoFrameOneShotTwo" id="player11" class="form-control" maxlength="2" size="1" disabled onkeypress="frameValidation('player11')"><br /><br />
+						<p id="playerTwoShot3Label">Shot 3</p>
 						<input type="text" name="playerTwoShotThree" id="player12" class="form-control" maxlength="2" size="1" disabled onkeypress="frameValidation('player12')">
 					</div>
 				</div>			
 				
 				<!--Player Three -->
-				<div class="col-xs-6 col-sm-4  col-md-2" id="player2">
+				<div class="col-xs-6 col-sm-4  col-md-2" id="player2"  style="background-color:lavender;">
 					<div class="form-group">
 						<h2><p id="playerThreeName"></p></h2><br />
 						<div id="totalScoresPlayer2">
@@ -151,8 +157,11 @@
 					</div>
 					<br />
 					<div class="form-group">
-						<input type="text" name="playerThreeShotOne" id="player20" class="form-control" maxlength="2" size="1" onkeypress="frameValidation('player20')">
-						<input type="text" name="playerThreeShotTwo" id="player21" class="form-control" maxlength="2" size="1" disabled onkeypress="frameValidation('player21')">
+						<p id="playerThreeShot1Label">Shot 1</p>
+						<input type="text" name="playerThreeShotOne" id="player20" class="form-control" maxlength="2" size="1" onkeypress="frameValidation('player20')"><br /><br />
+						<p id="playerThreeShot2Label">Shot 2</p>
+						<input type="text" name="playerThreeShotTwo" id="player21" class="form-control" maxlength="2" size="1" disabled onkeypress="frameValidation('player21')"><br /><br />
+						<p id="playerThreeShot3Label">Shot 3</p>
 						<input type="text" name="playerThreeShotThree" id="player22" class="form-control" maxlength="2" size="1" disabled onkeypress="frameValidation('player22')">
 					</div>
 				</div>	
@@ -168,14 +177,17 @@
 					</div>
 					<br />
 					<div class="form-group">
-						<input type="text" name="playerFourShotOne" id="player30" class="form-control" maxlength="2" size="1" onkeypress="frameValidation('player30')">
-						<input type="text" name="playerFourShotTwo" id="player31" class="form-control" maxlength="2" size="1" disabled onkeypress="frameValidation('player31')">
+						<p id="playerFourShot1Label">Shot 1</p>
+						<input type="text" name="playerFourShotOne" id="player30" class="form-control" maxlength="2" size="1" onkeypress="frameValidation('player30')"><br /><br />
+						<p id="playerFourShot2Label">Shot 2</p>
+						<input type="text" name="playerFourShotTwo" id="player31" class="form-control" maxlength="2" size="1" disabled onkeypress="frameValidation('player31')"><br /><br />
+						<p id="playerFourShot3Label">Shot 3</p>
 						<input type="text" name="playerFourShotThree" id="player32" class="form-control" maxlength="2" size="1" disabled onkeypress="frameValidation('player32')">
 					</div>
 				</div>		
 						
 				<!--Player Five -->
-				<div class="col-xs-6 col-sm-4  col-md-2" id="player4">
+				<div class="col-xs-6 col-sm-4  col-md-2" id="player4"  style="background-color:lavender;">
 					<div class="form-group">
 						<h2><p id="playerFiveName"></p></h2><br />
 						<div id="totalScoresPlayer4">
@@ -185,8 +197,11 @@
 					</div>
 					<br />
 					<div class="form-group">
-						<input type="text" name="playerFiveShotOne" id="player40" class="form-control" maxlength="2" size="1" onkeypress="frameValidation('player40')">
-						<input type="text" name="playerFiveShotTwo" id="player41" class="form-control" maxlength="2" size="1" disabled onkeypress="frameValidation('player41')">
+						<p id="playerFiveShot1Label">Shot 1</p>
+						<input type="text" name="playerFiveShotOne" id="player40" class="form-control" maxlength="2" size="1" onkeypress="frameValidation('player40')"><br /><br />
+						<p id="playerFiveShot2Label">Shot 2</p>
+						<input type="text" name="playerFiveShotTwo" id="player41" class="form-control" maxlength="2" size="1" disabled onkeypress="frameValidation('player41')"><br /><br />
+						<p id="playerFiveShot3Label">Shot 3</p>
 						<input type="text" name="playerFiveShotThree" id="player42" class="form-control" maxlength="2" size="1" disabled onkeypress="frameValidation('player42')">
 					</div>
 				</div>		
@@ -202,8 +217,11 @@
 					</div>
 					<br />
 					<div class="form-group">
-						<input type="text" name="playerSixShotOne" id="player50" class="form-control" maxlength="2" size="1" onkeypress="frameValidation('player50')">
-						<input type="text" name="playerSixShotTwo" id="player51" class="form-control" maxlength="2" size="1" disabled onkeypress="frameValidation('player51')">
+						<p id="playerSixShot1Label">Shot 1</p>
+						<input type="text" name="playerSixShotOne" id="player50" class="form-control" maxlength="2" size="1" onkeypress="frameValidation('player50')"><br /><br />
+						<p id="playerSixShot2Label">Shot 2</p>
+						<input type="text" name="playerSixShotTwo" id="player51" class="form-control" maxlength="2" size="1" disabled onkeypress="frameValidation('player51')"><br /><br />
+						<p id="playerSixShot3Label">Shot 3</p>
 						<input type="text" name="playerSixShotThree" id="player52" class="form-control" maxlength="2" size="1" disabled onkeypress="frameValidation('player52')">
 					</div>
 				</div>	

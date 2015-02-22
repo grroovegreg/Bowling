@@ -165,6 +165,13 @@ document.getElementById('player51').disabled = true;
 			elem.style.display = 'block';
 			var elem = document.getElementById('player52');
 			elem.style.display = 'block';
+			document.getElementById('playerOneShot3Label').style.visibility = "visible";
+			document.getElementById('playerTwoShot3Label').style.visibility = "visible";
+			document.getElementById('playerThreeShot3Label').style.visibility = "visible";
+			document.getElementById('playerFourShot3Label').style.visibility = "visible";
+			document.getElementById('playerFiveShot3Label').style.visibility = "visible";
+			document.getElementById('playerSixShot3Label').style.visibility = "visible";
+			
 		}
 		frame++;
 		document.getElementById("currentFrame").innerHTML = "Frame "+frame;
@@ -246,6 +253,24 @@ function calculateTotalScore() {
 	var elem = document.getElementById('player52');
 	elem.style.display = 'none';
 	
+	document.getElementById('playerOneShot1Label').style.visibility = "hidden";
+	document.getElementById('playerOneShot2Label').style.visibility = "hidden";
+	document.getElementById('playerOneShot3Label').style.visibility = "hidden";
+	document.getElementById('playerTwoShot1Label').style.visibility = "hidden";
+	document.getElementById('playerTwoShot2Label').style.visibility = "hidden";
+	document.getElementById('playerTwoShot3Label').style.visibility = "hidden";
+	document.getElementById('playerThreeShot1Label').style.visibility = "hidden";
+	document.getElementById('playerThreeShot2Label').style.visibility = "hidden";
+	document.getElementById('playerThreeShot3Label').style.visibility = "hidden";
+	document.getElementById('playerFourShot1Label').style.visibility = "hidden";
+	document.getElementById('playerFourShot2Label').style.visibility = "hidden";
+	document.getElementById('playerFourShot3Label').style.visibility = "hidden";
+	document.getElementById('playerFiveShot1Label').style.visibility = "hidden";
+	document.getElementById('playerFiveShot2Label').style.visibility = "hidden";
+	document.getElementById('playerFiveShot3Label').style.visibility = "hidden";
+	document.getElementById('playerSixShot1Label').style.visibility = "hidden";
+	document.getElementById('playerSixShot2Label').style.visibility = "hidden";
+	document.getElementById('playerSixShot3Label').style.visibility = "hidden";
 	
 	addScoreToArray("player0");
 	calculateScore("player0");
@@ -681,7 +706,12 @@ function saveNames()
 			elem.style.display = 'none';
 		}
 		
-		
+		document.getElementById('playerOneShot3Label').style.visibility = "hidden";
+		document.getElementById('playerTwoShot3Label').style.visibility = "hidden";
+		document.getElementById('playerThreeShot3Label').style.visibility = "hidden";
+		document.getElementById('playerFourShot3Label').style.visibility = "hidden";
+		document.getElementById('playerFiveShot3Label').style.visibility = "hidden";
+		document.getElementById('playerSixShot3Label').style.visibility = "hidden";
 		
 		
 
