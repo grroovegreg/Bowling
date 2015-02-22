@@ -26,6 +26,90 @@ var Names = [];//unused so far
 var playerFrameArray;
 var finalScoreCount;
 
+function frameValidation(shot)
+{
+
+	if (shot == 'player00'  && document.getElementById('player00').value < 10)
+	{
+		document.getElementById('player01').disabled = false;
+	}
+	if (shot == 'player01'  && document.getElementById('player01').value < 10 && frame == 10)
+	{
+		document.getElementById('player02').disabled = false;
+	}
+	
+	if (shot == 'player10'  && document.getElementById('player10').value < 10)
+	{
+		document.getElementById('player11').disabled = false;
+	}
+	if (shot == 'player11'  && document.getElementById('player11').value < 10 && frame == 10)
+	{
+		document.getElementById('player12').disabled = false;
+	}
+	
+	if (shot == 'player20'  && document.getElementById('player20').value < 10)
+	{
+		document.getElementById('player21').disabled = false;
+	}
+	if (shot == 'player21'  && document.getElementById('player21').value < 10 && frame == 10)
+	{
+		document.getElementById('player22').disabled = false;
+	}
+	
+	if (shot == 'player30'  && document.getElementById('player30').value < 10)
+	{
+		document.getElementById('player31').disabled = false;
+	}
+	if (shot == 'player31'  && document.getElementById('player31').value < 10 && frame == 10)
+	{
+		document.getElementById('player32').disabled = false;
+	}
+	
+	if (shot == 'player40'  && document.getElementById('player40').value < 10)
+	{
+		document.getElementById('player41').disabled = false;
+	}
+	if (shot == 'player41'  && document.getElementById('player41').value < 10 && frame == 10)
+	{
+		document.getElementById('player42').disabled = false;
+	}
+	
+	if (shot == 'player50'  && document.getElementById('player50').value < 10)
+	{
+		document.getElementById('player51').disabled = false;
+	}
+	if (shot == 'player51'  && document.getElementById('player51').value < 10 && frame == 10)
+	{
+		document.getElementById('player52').disabled = false;
+	}
+	
+}
+
+
+function nameValidation(name)
+{
+	if (name == 0) 
+	{
+	document.getElementById('player1Name').disabled = false;
+	}
+	if (name == 1) 
+	{
+	document.getElementById('player2Name').disabled = false;
+	}
+	if (name == 2) 
+	{
+	document.getElementById('player3Name').disabled = false;
+	}
+	if (name == 3) 
+	{
+	document.getElementById('player4Name').disabled = false;
+	}
+	if (name == 4) 
+	{
+	document.getElementById('player5Name').disabled = false;
+	}
+}
+
 function hideFrameScores() 
 {
 	var elem = document.getElementById('frameScores');
@@ -45,6 +129,12 @@ function hideFrameScores()
 //Calclate the score for each player by passing each of the 6 through to the calculative functions
 function runThroughPlayers() 
 {
+document.getElementById('player01').disabled = true;
+document.getElementById('player11').disabled = true;
+document.getElementById('player21').disabled = true;
+document.getElementById('player31').disabled = true;
+document.getElementById('player41').disabled = true;
+document.getElementById('player51').disabled = true;
 	
 		
 //if Names[0] not equal to nothing/undefined - then ignore
@@ -466,112 +556,141 @@ window.print();
 //Disable Input Box On Name Input
 function saveNames() 
 {
+	if (document.getElementById('player0Name').value == "")
+	{
+		window.alert("You must enter at least one player name to bowl");
+	}
 
-var elem = document.getElementById('frameScores');
-elem.style.display = 'block';
-var elem = document.getElementById('prevNext');
-elem.style.display = 'block';
-var elem = document.getElementById('frameScores');
-elem.style.display = 'block';
-var elem = document.getElementById('restart');
-elem.style.display = 'block';
+	else
+	{
+	var elem = document.getElementById('frameScores');
+	elem.style.display = 'block';
+	var elem = document.getElementById('prevNext');
+	elem.style.display = 'block';
+	var elem = document.getElementById('frameScores');
+	elem.style.display = 'block';
+	var elem = document.getElementById('restart');
+	elem.style.display = 'block';
 
-var elem = document.getElementById('player02');
+	var elem = document.getElementById('player02');
+			elem.style.display = 'none';
+			var elem = document.getElementById('player12');
+			elem.style.display = 'none';
+			var elem = document.getElementById('player22');
+			elem.style.display = 'none';
+			var elem = document.getElementById('player32');
+			elem.style.display = 'none';
+			var elem = document.getElementById('player42');
+			elem.style.display = 'none';
+			var elem = document.getElementById('player52');
+			elem.style.display = 'none';
+
+	var elem = document.getElementById('totalScoresPlayer0');
 		elem.style.display = 'none';
-		var elem = document.getElementById('player12');
+		var elem = document.getElementById('totalScoresPlayer1');
 		elem.style.display = 'none';
-		var elem = document.getElementById('player22');
+		var elem = document.getElementById('totalScoresPlayer2');
 		elem.style.display = 'none';
-		var elem = document.getElementById('player32');
+		var elem = document.getElementById('totalScoresPlayer3');
 		elem.style.display = 'none';
-		var elem = document.getElementById('player42');
+		var elem = document.getElementById('totalScoresPlayer4');
 		elem.style.display = 'none';
-		var elem = document.getElementById('player52');
+		var elem = document.getElementById('totalScoresPlayer5');
 		elem.style.display = 'none';
 
-var elem = document.getElementById('totalScoresPlayer0');
-	elem.style.display = 'none';
-	var elem = document.getElementById('totalScoresPlayer1');
-	elem.style.display = 'none';
-	var elem = document.getElementById('totalScoresPlayer2');
-	elem.style.display = 'none';
-	var elem = document.getElementById('totalScoresPlayer3');
-	elem.style.display = 'none';
-	var elem = document.getElementById('totalScoresPlayer4');
-	elem.style.display = 'none';
-	var elem = document.getElementById('totalScoresPlayer5');
-	elem.style.display = 'none';
 
+	var elem = document.getElementById('names');
+	elem.style.display = 'none';
+	var elem = document.getElementById('saveNames');
+	elem.style.display = 'none';
+		frame = 1;
+		document.getElementById("currentFrame").innerHTML = "Frame "+frame;
+		document.getElementById("saveNames").disabled = true;
 
-var elem = document.getElementById('names');
-elem.style.display = 'none';
-var elem = document.getElementById('saveNames');
-elem.style.display = 'none';
-	frame = 1;
-	document.getElementById("currentFrame").innerHTML = "Frame "+frame;
-	document.getElementById("saveNames").disabled = true;
+		if (document.getElementById("player0Name").value != "") 
+		{
+			Names[0] = document.getElementById("player0Name").value;
+			document.getElementById("playerOneName").innerHTML = Names[0];
+		}
+		if (document.getElementById("player1Name").value != "") 
+		{
+			Names[1] = document.getElementById("player1Name").value;
+			document.getElementById("playerTwoName").innerHTML = Names[1];
+		}
+		if (document.getElementById("player2Name").value != "") 
+		{
+			Names[2] = document.getElementById("player2Name").value;
+			document.getElementById("playerThreeName").innerHTML = Names[2];
+		}
+		if (document.getElementById("player3Name").value != "") 
+		{
+			Names[3] = document.getElementById("player3Name").value;
+			document.getElementById("playerFourName").innerHTML = Names[3];
+		}
+		if (document.getElementById("player4Name").value != "") 
+		{
+			Names[4] = document.getElementById("player4Name").value;
+			document.getElementById("playerFiveName").innerHTML = Names[4];
+		}
+		if (document.getElementById("player5Name").value != "") 
+		{
+			Names[5] = document.getElementById("player5Name").value;
+			document.getElementById("playerSixName").innerHTML = Names[5];
+		}
 
-	if (document.getElementById("player0Name").value == "") 
-	{
-		Names[0] = "Unnamed";
-	}
-	else 
-	{
-		Names[0] = document.getElementById("player0Name").value;
-	}
-	if (document.getElementById("player1Name").value == "") 
-	{
-		Names[1] = "Unnamed";
-	}
-	else 
-	{
-		Names[1] = document.getElementById("player1Name").value;
-	}
-	if (document.getElementById("player2Name").value == "") 
-	{
-		Names[2] = "Unnamed";
-	}
-	else 
-	{
-		Names[2] = document.getElementById("player2Name").value;
-	}
-	if (document.getElementById("player3Name").value == "") 
-	{
-		Names[3] = "Unnamed";
-	}
-	else 
-	{
-		Names[3] = document.getElementById("player3Name").value;
-	}
-	if (document.getElementById("player4Name").value == "") 
-	{
-		Names[4] = "Unnamed";
-	}
-	else 
-	{
-		Names[4] = document.getElementById("player4Name").value;
-	}
-	if (document.getElementById("player5Name").value == "") 
-	{
-		Names[5] = "Unnamed";
-	}
-	else 
-	{
-		Names[5] = document.getElementById("player5Name").value;
-	}
+		//window.alert(Names.toString());
+		//window.alert(Names.length);
+		if (Names.length == 1 ) {
+			var elem = document.getElementById('player1');
+			elem.style.display = 'none';
+			var elem = document.getElementById('player2');
+			elem.style.display = 'none';
+			var elem = document.getElementById('player3');
+			elem.style.display = 'none';
+			var elem = document.getElementById('player4');
+			elem.style.display = 'none';
+			var elem = document.getElementById('player5');
+			elem.style.display = 'none';
+		}
+		if (Names.length == 2 ) {
+			var elem = document.getElementById('player2');
+			elem.style.display = 'none';
+			var elem = document.getElementById('player3');
+			elem.style.display = 'none';
+			var elem = document.getElementById('player4');
+			elem.style.display = 'none';
+			var elem = document.getElementById('player5');
+			elem.style.display = 'none';
+		}
+		if (Names.length == 3 ) {
+			var elem = document.getElementById('player3');
+			elem.style.display = 'none';
+			var elem = document.getElementById('player4');
+			elem.style.display = 'none';
+			var elem = document.getElementById('player5');
+			elem.style.display = 'none';
+		}
+		if (Names.length == 4 ) {
+			var elem = document.getElementById('player4');
+			elem.style.display = 'none';
+			var elem = document.getElementById('player5');
+			elem.style.display = 'none';
+		}
+		if (Names.length == 5 ) {
+			var elem = document.getElementById('player5');
+			elem.style.display = 'none';
+		}
+		
+		
+		
+		
 
-	document.getElementById("playerOneName").innerHTML = Names[0];
-	document.getElementById("playerTwoName").innerHTML = Names[1];
-	document.getElementById("playerThreeName").innerHTML = Names[2];
-	document.getElementById("playerFourName").innerHTML = Names[3];
-	document.getElementById("playerFiveName").innerHTML = Names[4];
-	document.getElementById("playerSixName").innerHTML = Names[5];
+		//document.getElementById('player0Name').disabled = true;
+		//document.getElementById('player1Name').disabled = true;
+		//document.getElementById('player2Name').disabled = true;
+		//document.getElementById('player3Name').disabled = true;
+		//document.getElementById('player4Name').disabled = true;
+		//document.getElementById('player5Name').disabled = true;
 
-	document.getElementById('player0Name').disabled = true;
-	document.getElementById('player1Name').disabled = true;
-	document.getElementById('player2Name').disabled = true;
-	document.getElementById('player3Name').disabled = true;
-	document.getElementById('player4Name').disabled = true;
-	document.getElementById('player5Name').disabled = true;
-
+	}
 }
