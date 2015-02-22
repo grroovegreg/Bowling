@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>10 Pin Bowling Application</title>
+    
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body onload="hideFrameScores();">
+	<div class="container">
+		<div class="page-header">
+			<h1> Ten Pin Bowling Score Tracker<small> by Greg Preece</small> </h1>
+		</div>
+		
+		<div class="row">
+			  <div class="col-xs-12">		
+					<button type="button" class="btn btn-primary" onclick="saveNames()" id="saveNames">Save Names
+					</button>
+					
+					
+					<button type="button" class="btn btn-warning" onClick="history.go(0)" id="restart">
+						<span class="glyphicon glyphicon-refresh"></span>Restart
+					</button>
+				</div>
+		</div>
+		<div class="row" id="print">
+			  <div class="col-xs-12">		
+					<button type="button" class="btn btn-success" onclick="printFunction()">
+						<span class="glyphicon glyphicon-print"></span>Print Scores
+					</button>
+				</div>
+		</div>
+		<div class="row">
+			  <div class="col-xs-12" style="text-align: center">		
+					<h1><p id="currentFrame"></p><h2>
+				</div>
+		</div>
+		<div class="row" id="prevNext">
+			<!--<div class="col-xs-6 col-sm-6">		
+					<button type="button" class="btn btn-primary" onclick="">Previous Frame
+					</button>
+			</div>-->
+			<div class="col-xs-12" style="text-align: center">		
+					<button type="button" class="btn btn-primary" onclick="runThroughPlayers()" id="nextFrame">Next Frame
+					</button>
+					<button type="button" class="btn btn-success btn-lg" onclick="calculateTotalScore()" id="calculateTotal">Calcuate Total Score
+					</button>
+			</div>
+		</div>
+		
+		<!--<div class="row">
+			<div class="col-xs-12">
+				Add
+				Delete
+				Save
+			</div>
+		</div>-->
+		
+		<div class="row" id="names">
+			<div class="col-xs-6 col-sm-4  col-md-2" style="background-color:#E8E8E8;">
+				<div class="form-group">
+					<label for="playerOneName">Player 1:</label> <br />
+					<input type="text" name="playerOneName" id="player0Name" class="form-control" maxlength="15" size="6"><br />
+				</div>
+			</div>
+			<div class="col-xs-6 col-sm-4  col-md-2" style="background-color:#E8E8E8;">
+				<div class="form-group">
+					<label for="playerTwoName">Player 2:</label> <br />
+					<input type="text" name="playerTwoName" id="player1Name" class="form-control" maxlength="15" size="6"><br />
+				</div>
+			</div>
+			<div class="col-xs-6 col-sm-4  col-md-2" style="background-color:#E8E8E8;">
+				<div class="form-group">
+					<label for="playerThreeName">Player 3:</label> <br />
+					<input type="text" name="playerThreeName" id="player2Name" class="form-control" maxlength="15" size="6"><br />
+				</div>
+			</div>
+			<div class="col-xs-6 col-sm-4  col-md-2" style="background-color:#E8E8E8;">
+				<div class="form-group">
+					<label for="playerFourName">Player 4:</label> <br />
+					<input type="text" name="playerFourName" id="player3Name" class="form-control" maxlength="15" size="6"><br />
+				</div>
+			</div>
+			<div class="col-xs-6 col-sm-4  col-md-2" style="background-color:#E8E8E8;">
+				<div class="form-group">
+					<label for="playerFiveName">Player 5:</label> <br />
+					<input type="text" name="playerFiveName" id="player4Name" class="form-control" maxlength="15" size="6"><br />
+				</div>
+			</div>
+			<div class="col-xs-6 col-sm-4  col-md-2" style="background-color:#E8E8E8;">
+				<div class="form-group">
+					<label for="playerSixName">Player 6:</label> <br />
+					<input type="text" name="playerSixName" id="player5Name" class="form-control" maxlength="15" size="6"><br />
+				</div>
+			</div>
+		</div>
+		
+		<form class="form-inline" role="form">
+			<div class="row" id="frameScores">	
+				<!--Player One -->
+				<div class="col-xs-6 col-sm-4  col-md-2" id="player1">
+					<div class="form-group">
+						<h2><p id="playerOneName"></p></h2><br />
+						<div id="totalScoresPlayer0">
+							<label for="playerOneTotalScore">Total Score: </label>
+							<p id="player0Score">0</p>
+						</div>
+					</div>
+					<br />
+					<div class="form-group">
+						<input type="text" name="playerOneShotOne" id="player00" class="form-control" maxlength="2" size="1">
+						<input type="text" name="playerOneShotTwo" id="player01" class="form-control" maxlength="2" size="1">
+						<input type="text" name="playerOneShotThree" id="player02" class="form-control" maxlength="2" size="1">
+					</div>
+				</div>
+			
+				<!--Player Two -->
+				<div class="col-xs-6 col-sm-4  col-md-2" id="player1">
+					<div class="form-group">
+						<h2><p id="playerTwoName"></p></h2><br />
+						<div id="totalScoresPlayer1">
+							<label for="playerTwoTotalScore">Total Score: </label>
+							<p id="player1Score">0</p>
+						</div>
+					</div>
+					<br />
+					<div class="form-group">
+						<input type="text" name="playerTwoFrameOneShotOne" id="player10" class="form-control" maxlength="2" size="1">
+						<input type="text" name="playerTwoFrameOneShotTwo" id="player11" class="form-control" maxlength="2" size="1">
+						<input type="text" name="playerTwoShotThree" id="player12" class="form-control" maxlength="2" size="1">
+					</div>
+				</div>			
+				
+				<!--Player Three -->
+				<div class="col-xs-6 col-sm-4  col-md-2" id="player2">
+					<div class="form-group">
+						<h2><p id="playerThreeName"></p></h2><br />
+						<div id="totalScoresPlayer2">
+							<label for="playerThreeTotalScore">Total Score: </label>
+							<p id="player2Score">0</p>
+						</div>
+					</div>
+					<br />
+					<div class="form-group">
+						<input type="text" name="playerThreeShotOne" id="player20" class="form-control" maxlength="2" size="1">
+						<input type="text" name="playerThreeShotTwo" id="player21" class="form-control" maxlength="2" size="1">
+						<input type="text" name="playerThreeShotThree" id="player22" class="form-control" maxlength="2" size="1">
+					</div>
+				</div>	
+				
+				<!--Player Four -->
+				<div class="col-xs-6 col-sm-4  col-md-2" id="player3">
+					<div class="form-group">
+						<h2><p id="playerFourName"></p></h2><br />
+						<div id="totalScoresPlayer3">
+							<label for="playerFourTotalScore">Total Score: </label>
+							<p id="player3Score">0</p>
+						</div>
+					</div>
+					<br />
+					<div class="form-group">
+						<input type="text" name="playerFourShotOne" id="player30" class="form-control" maxlength="2" size="1">
+						<input type="text" name="playerFourShotTwo" id="player31" class="form-control" maxlength="2" size="1">
+						<input type="text" name="playerFourShotThree" id="player32" class="form-control" maxlength="2" size="1">
+					</div>
+				</div>		
+						
+				<!--Player Five -->
+				<div class="col-xs-6 col-sm-4  col-md-2" id="player4">
+					<div class="form-group">
+						<h2><p id="playerFiveName"></p></h2><br />
+						<div id="totalScoresPlayer4">
+							<label for="playerFiveTotalScore">Total Score: </label>
+							<p id="player4Score">0</p>
+						</div>
+					</div>
+					<br />
+					<div class="form-group">
+						<input type="text" name="playerFiveShotOne" id="player40" class="form-control" maxlength="2" size="1">
+						<input type="text" name="playerFiveShotTwo" id="player41" class="form-control" maxlength="2" size="1">
+						<input type="text" name="playerFiveShotThree" id="player42" class="form-control" maxlength="2" size="1">
+					</div>
+				</div>		
+						
+				<!--Player Six -->
+				<div class="col-xs-6 col-sm-4  col-md-2" id="player5">
+					<div class="form-group">
+						<h2><p id="playerSixName"></p></h2><br />
+						<div id="totalScoresPlayer5">						
+							<label for="playerSixTotalScore">Total Score: </label>
+							<p id="player5Score">0</p>
+						</div>
+					</div>
+					<br />
+					<div class="form-group">
+						<input type="text" name="playerSixShotOne" id="player50" class="form-control" maxlength="2" size="1">
+						<input type="text" name="playerSixShotTwo" id="player51" class="form-control" maxlength="2" size="1">
+						<input type="text" name="playerSixShotThree" id="player52" class="form-control" maxlength="2" size="1">
+					</div>
+				</div>	
+			</div>
+		</form>		
+	</div>
+
+
+
+   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <!--<script src="js/bootstrap.min.js"></script>-->
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script src="js/bowling.js"></script>
+  </body>
+</html>
