@@ -1,0 +1,49 @@
+frameOneShotOne:0
+frameOneShotTwo:1
+frameTwoShotOne:2
+frameTwoShotTwo:3
+frameThreeShotOne:4
+frameThreeShotTwo:5
+frameFourShotOne:6
+frameFourShotTwo:7
+frameFiveShotOne:8
+frameFiveShotTwo:9
+frameSixShotOne:10
+frameSixShotTwo:11
+frameSevenShotOne:12
+frameSevenShotTwo:13
+frameEightShotOne:14
+frameEightShotTwo:15
+frameNineShotOne:16
+frameNineShotTwo:17
+frameTenShotOne:18
+frameTenShotTwo:19
+frameTenShotThree:20
+
+
+function createPlayerArray() {
+PlayerObject = [];
+PlayerObject[0] = "hi";
+testOutput();
+}
+
+function saveNames() {
+Names = [];
+Names[0] = document.getElementById("NameOne").value;
+window.alert(Names[0]);
+}
+
+function testOutput() {
+window.alert(PlayerObject[0]);
+}
+
+function savePlayer(name) {
+   if (typeof(Storage) != "undefined") {
+    // Store
+    localStorage.setItem("lastname", name);
+    // Retrieve
+    document.getElementById("demo").innerHTML = localStorage.getItem("lastname");
+} else {
+    document.getElementById("demo").innerHTML = "Sorry, your browser does not support Web Storage...";
+}
+}
