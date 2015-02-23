@@ -32,6 +32,7 @@
 					</button><br />
 				</div>
 		</div>
+		
 		<div class="row" id="print">
 			  <div class="col-xs-12">		
 					<button type="button" class="btn btn-success" onclick="printFunction()">
@@ -39,16 +40,14 @@
 					</button>
 				</div>
 		</div>
+		
 		<div class="row">
 			  <div class="col-xs-12" style="text-align: center">		
 					<h1><p id="currentFrame"></p><h2>
 				</div>
 		</div>
+		
 		<div class="row" id="prevNext">
-			<!--<div class="col-xs-6 col-sm-6">		
-					<button type="button" class="btn btn-primary" onclick="">Previous Frame
-					</button>
-			</div>-->
 			<div class="col-xs-12" style="text-align: center">		
 					<button type="button" class="btn btn-primary" onclick="runThroughPlayers()" id="nextFrame">Next Frame
 					</button><br />
@@ -57,14 +56,6 @@
 			</div>
 		</div>
 		
-		<!--<div class="row">
-			<div class="col-xs-12">
-				Add
-				Delete
-				Save
-			</div>
-		</div>-->
-		
 		<div class="row" id="names">
 			<div class="col-xs-6 col-sm-4  col-md-2" style="background-color:#E8E8E8;">
 				<div class="form-group">
@@ -72,30 +63,35 @@
 					<input type="text" name="playerOneName" id="player0Name" class="form-control" maxlength="15" size="6" onkeypress="nameValidation(0)"><br />
 				</div>
 			</div>
+			
 			<div class="col-xs-6 col-sm-4  col-md-2" style="background-color:#E8E8E8;">
 				<div class="form-group">
 					<label for="playerTwoName">Player 2:</label> <br />
 					<input type="text" name="playerTwoName" id="player1Name" class="form-control" maxlength="15" size="6"  onkeypress="nameValidation(1)" disabled><br />
 				</div>
 			</div>
+			
 			<div class="col-xs-6 col-sm-4  col-md-2" style="background-color:#E8E8E8;">
 				<div class="form-group">
 					<label for="playerThreeName">Player 3:</label> <br />
 					<input type="text" name="playerThreeName" id="player2Name" class="form-control" maxlength="15" size="6" onkeypress="nameValidation(2)" disabled><br />
 				</div>
 			</div>
+			
 			<div class="col-xs-6 col-sm-4  col-md-2" style="background-color:#E8E8E8;">
 				<div class="form-group">
 					<label for="playerFourName">Player 4:</label> <br />
 					<input type="text" name="playerFourName" id="player3Name" class="form-control" maxlength="15" size="6" onkeypress="nameValidation(3)" disabled><br />
 				</div>
 			</div>
+			
 			<div class="col-xs-6 col-sm-4  col-md-2" style="background-color:#E8E8E8;">
 				<div class="form-group">
 					<label for="playerFiveName">Player 5:</label> <br />
 					<input type="text" name="playerFiveName" id="player4Name" class="form-control" maxlength="15" size="6" onkeypress="nameValidation(4)" disabled><br />
 				</div>
 			</div>
+			
 			<div class="col-xs-6 col-sm-4  col-md-2" style="background-color:#E8E8E8;">
 				<div class="form-group">
 					<label for="playerSixName">Player 6:</label> <br />
@@ -229,9 +225,7 @@
 		</form>		
 	</div>
 
-
-
-   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <!--<script src="js/bootstrap.min.js"></script>-->
