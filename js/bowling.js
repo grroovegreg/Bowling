@@ -505,21 +505,21 @@ function calculateScore(player)
 	{
 
 		//3 STRIKES IN A ROW
-		if (playerScoreArray[scoreArrayPosition] == 10 && playerScoreArray[nextFrame] == 10 && playerScoreArray[nextFrame+1] == 10) 
+		if (playerScoreArray[scoreArrayPosition] == 10 && playerScoreArray[nextFrame] == 10 && playerScoreArray[19] == 10) 
 		{	
 			playerFrameArray[finalScoreCount] = 30;
 		}
 
 		//TWO STRIKES IN A ROW
-		else if (playerScoreArray[scoreArrayPosition] == 10 && playerScoreArray[nextFrame] == 10 && playerScoreArray[nextFrame+1] !=10) 
+		else if (playerScoreArray[scoreArrayPosition] == 10 && playerScoreArray[nextFrame] == 10 && playerScoreArray[19] !=10) 
 		{
-			playerFrameArray[finalScoreCount] = 20 + parseInt(playerScoreArray[nextFrame+1]);
+			playerFrameArray[finalScoreCount] = 20 + parseInt(playerScoreArray[19]);
 		}
 
 		//STRIKE AND A HALF STRIKE
 		else if (playerScoreArray[scoreArrayPosition] == 10 && playerScoreArray[nextFrame] != 10) 
 		{
-			playerFrameArray[finalScoreCount] = 10 + (parseInt(playerScoreArray[nextFrame])+parseInt(playerScoreArray[nextFrame+1]));
+			playerFrameArray[finalScoreCount] = 10 + (parseInt(playerScoreArray[nextFrame])+parseInt(playerScoreArray[19]));
 		}
 
 		//HALF STRIKE
